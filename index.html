@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Do+Hyeon&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#EFF9FF;--card:#FFFFFF;--ink:#216B59;--sub:#59B36A;--main:#216B59;--accent:#216B59;--line:#CDEFFF;--hero1:#59B36A;--hero2:#216B59;
+:root{--bg:#EFF9FF;--card:#FFFFFF;--ink:#216B59;--sub:#216B59;--main:#59B36A;--accent:#216B59;--line:#CDEFFF;--soft:#9EDB8C;--green:#59B36A;--hero1:#59B36A;--hero2:#216B59;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
@@ -31,11 +31,11 @@ section{padding:30px 0 6px}
 h2{font-size:20px;margin:0 0 12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:12px}
 .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:-22px}
-.nums div{background:var(--card);border:1px solid var(--line);border-radius:14px;text-align:center;padding:12px 4px}
+.nums div{background:linear-gradient(180deg,#FFFFFF,#F4FBEF);border:1px solid var(--soft);border-radius:14px;text-align:center;padding:12px 4px}
 .nums b{display:block;font-size:19px;color:var(--main)}
 .nums span{font-size:12px;color:var(--sub)}
 .btns{display:grid;gap:10px;margin-top:18px}
-.btn{display:block;text-align:center;padding:14px;border-radius:14px;font-weight:700;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--card)}
+.btn{display:block;text-align:center;padding:14px;border-radius:14px;font-weight:700;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:#F7FCFF}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
 .btn.off{opacity:.6}
 .row{display:flex;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line)}
@@ -47,8 +47,8 @@ dl{margin:0}
 .course .km{font-size:26px;font-weight:800;color:var(--main);min-width:70px}
 .course h3{margin:0;font-size:17px}
 .course p{margin:2px 0 0;font-size:14px;color:var(--sub)}
-.note{background:color-mix(in srgb,var(--accent) 14%,var(--card));border-color:var(--accent)}
-.note b{color:var(--accent)}
+.note{background:#F4FBEF;border-color:#9EDB8C}
+.note b{color:#216B59}
 .soon{border-style:dashed;color:var(--sub);text-align:center}
 .poster{aspect-ratio:3/4;display:grid;place-items:center;border:2px dashed var(--line);border-radius:16px;color:var(--sub);font-size:14px}
 ul{margin:6px 0 0;padding-left:20px}
