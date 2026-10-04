@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Do+Hyeon&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Do+Hyeon&family=Outfit:wght@800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#EFF9FF;--card:#FFFFFF;--ink:#216B59;--sub:#216B59;--main:#59B36A;--accent:#216B59;--line:#CDEFFF;--soft:#9EDB8C;--green:#59B36A;--hero1:#59B36A;--hero2:#216B59;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -58,16 +58,20 @@ nav a{flex:1;text-align:center;font-size:12px;color:var(--sub);text-decoration:n
 nav a:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-#splash{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#59B36A,#216B59);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;animation:splashOut .7s ease 2.8s forwards}
-#splash .y{font-size:20px;opacity:.85;letter-spacing:.2em}
-#splash h1{font-size:34px;line-height:1.3;margin:10px 0 12px;font-weight:400}
-#splash .s{font-size:17px;font-weight:700;color:#CDEFFF}
+#splash{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#59B36A,#216B59);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;transition:opacity .8s ease,visibility .8s ease}
+#splash.fade-out{opacity:0;visibility:hidden;pointer-events:none}
+#splash .y{font-family:'Outfit',sans-serif;font-size:clamp(48px,14vw,72px);font-weight:800;letter-spacing:-.02em;line-height:1;margin-bottom:4px;background:linear-gradient(135deg,#fff 30%,#CDEFFF 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:introFadeInDown .6s ease .2s both}
+#splash h1{font-size:34px;line-height:1.3;margin:8px 0 0;font-weight:400;min-height:2.6em}
+#splash .s{font-size:17px;font-weight:700;color:#CDEFFF;margin-top:10px;min-height:1.6em}
+#splash .cur{display:inline-block;width:3px;font-size:28px;font-weight:300;color:#CDEFFF;margin-top:4px;animation:introBlink .8s step-end infinite}
+#splash .cur.hidden{display:none}
 #splash .em{font-size:38px;margin-top:34px;display:flex;gap:14px}
 #splash .em span{display:inline-block;opacity:0;animation:pop .5s ease forwards}
 #splash .em span:nth-child(1){animation-delay:.3s}#splash .em span:nth-child(2){animation-delay:.5s}#splash .em span:nth-child(3){animation-delay:.7s}#splash .em span:nth-child(4){animation-delay:.9s}#splash .em span:nth-child(5){animation-delay:1.1s}
 @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.8)}to{opacity:1;transform:none}}
-@keyframes splashOut{to{opacity:0;visibility:hidden;pointer-events:none}}
-@media (prefers-reduced-motion:reduce){#splash{animation-duration:.01s;animation-delay:1.8s}#splash .em span{animation:none;opacity:1}}
+@keyframes introFadeInDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes introBlink{0%,100%{opacity:1}50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){#splash .y,#splash .cur{animation:none}#splash .em span{animation:none;opacity:1}}
 
 h1,h2,h3,.nums b,.course .km,#splash .s{font-family:"Do Hyeon","Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-weight:400}
 b,strong,.btn,.row dd{font-weight:400}
@@ -77,8 +81,9 @@ b,strong,.btn,.row dd{font-weight:400}
 <body>
 <div id="splash" aria-hidden="true">
   <div class="y">2026</div>
-  <h1>화성오산 교육가족<br>슬로깅 페스타</h1>
-  <div class="s">교권 존중, 교육가족 모두의 RUN</div>
+  <h1 id="introTitle"></h1>
+  <div class="s" id="introSubtitle"></div>
+  <div class="cur" id="introCursor">|</div>
   <div class="em"><span>🚶</span><span>🏃</span><span>👟</span><span>🌿</span><span>🏅</span></div>
 </div>
 <div class="hero" id="home">
@@ -176,6 +181,48 @@ b,strong,.btn,.row dd{font-weight:400}
   <a href="#schedule">🕘<br>일정</a>
   <a href="#where">📍<br>오시는 길</a>
 </nav>
-<script>document.getElementById("splash").onclick=function(){this.style.display="none"};var d=document.getElementById("dlg");document.getElementById("zoom").onclick=function(){d.showModal()};document.getElementById("close").onclick=function(){d.close()};d.onclick=function(e){if(e.target===d)d.close()};</script>
+<script>
+(function(){
+  var TOTAL_DURATION=5000;            /* 학생예술제와 동일: 전체 5초 */
+  var TITLE_LINES=['화성오산 교육가족','슬로깅 페스타'];
+  var SLOGAN='교권 존중, 교육가족 모두의 RUN';
+  var TITLE_MS_PER_CHAR=75;           /* 학생예술제 제목: 10글자 750ms */
+  var SLOGAN_MS_PER_CHAR=37.5;        /* 학생예술제 부제: 32글자 1200ms */
+  var PAUSE_BETWEEN=300;              /* 제목과 부제 사이 0.3초 */
+  var elS=document.getElementById('splash'),elT=document.getElementById('introTitle'),elSub=document.getElementById('introSubtitle'),elC=document.getElementById('introCursor');
+  if(!elS)return;
+  var start=Date.now();
+  function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
+  function typeInto(el,text,perChar){
+    return new Promise(function(resolve){
+      var node=document.createTextNode('');el.appendChild(node);
+      var chars=Array.from(text),i=0;
+      var timer=setInterval(function(){
+        node.data+=chars[i];i++;
+        if(i>=chars.length){clearInterval(timer);resolve();}
+      },perChar);
+    });
+  }
+  function dismiss(){
+    elC.classList.add('hidden');
+    elS.classList.add('fade-out');
+    setTimeout(function(){elS.style.display='none'},900);
+  }
+  async function run(){
+    for(var i=0;i<TITLE_LINES.length;i++){
+      await typeInto(elT,TITLE_LINES[i],TITLE_MS_PER_CHAR);
+      if(i<TITLE_LINES.length-1)elT.appendChild(document.createElement('br'));
+    }
+    await wait(PAUSE_BETWEEN);
+    await typeInto(elSub,SLOGAN,SLOGAN_MS_PER_CHAR);
+    setTimeout(dismiss,Math.max(TOTAL_DURATION-(Date.now()-start),400));
+  }
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){
+    elT.innerHTML=TITLE_LINES.join('<br>');elSub.textContent=SLOGAN;setTimeout(dismiss,1800);
+  }else{
+    (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run,run);
+  }
+})();
+document.getElementById("splash").onclick=function(){this.style.display="none"};var d=document.getElementById("dlg");document.getElementById("zoom").onclick=function(){d.showModal()};document.getElementById("close").onclick=function(){d.close()};d.onclick=function(e){if(e.target===d)d.close()};</script>
 </body>
 </html>
