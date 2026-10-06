@@ -87,9 +87,11 @@ b,strong,.btn,.row dd{font-weight:400}
 .toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(30px);background:#216B59;color:#fff;font-size:13px;padding:9px 18px;border-radius:9999px;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:50;pointer-events:none;opacity:0;transition:all .25s cubic-bezier(.2,.8,.2,1);white-space:nowrap}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 .course-img{width:100%;display:block;border-radius:12px;margin:14px 0 0}
-.apply-title{margin:0 0 12px;font-size:18px;text-align:center;color:var(--main)}
-.apply-choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.apply-choices .btn{padding:14px 8px}
+.apply-fold summary{list-style:none;cursor:pointer}
+.apply-fold summary::-webkit-details-marker{display:none}
+.apply-fold .arrow{display:inline-block;transition:transform .2s ease}
+.apply-fold[open] .arrow{transform:rotate(180deg)}
+.apply-choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 </style>
 </head>
 <body>
@@ -119,12 +121,13 @@ b,strong,.btn,.row dd{font-weight:400}
     <div><b>5km</b><span>달리기 코스</span></div>
   </div>
   <div class="btns">
-  <div class="card apply-box">
-    <h3 class="apply-title">슬로깅 참가 신청하기</h3>
-    <div class="apply-choices">
-      <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeSH96eASG7K3Stfn5Dwf0tQEiA01Yh3XvTwhimtPf6dTSIZg/viewform?usp=dialog" target="_blank" rel="noopener">개인 신청자</a>
-      <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeuAJzhiDNSJtUPKcJmX1qJl5yR53lSQ2zFwMAsuJsjHzXaXQ/viewform?usp=publish-editor" target="_blank" rel="noopener">관공서 신청자</a>
-    </div>
+    <details class="apply-fold">
+      <summary class="btn primary">슬로깅 참가 신청하기 <span class="arrow">▾</span></summary>
+      <div class="apply-choices">
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSH96eASG7K3Stfn5Dwf0tQEiA01Yh3XvTwhimtPf6dTSIZg/viewform?usp=dialog" target="_blank" rel="noopener">개인 신청자</a>
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeuAJzhiDNSJtUPKcJmX1qJl5yR53lSQ2zFwMAsuJsjHzXaXQ/viewform?usp=publish-editor" target="_blank" rel="noopener">관공서 신청자</a>
+      </div>
+    </details>
     <a class="btn volunteer" href="https://docs.google.com/forms/d/e/1FAIpQLSfbO_dxJxHNkbwCplxmgMgcsqYBZtRWU7oHlPsqYnG5Oyr3jw/viewform?usp=publish-editor" target="_blank" rel="noopener">학생 봉사단 지원하기</a>
     <a class="btn" href="#schedule">당일 일정 보기</a>
     <a class="btn" href="#where">오시는 길</a>
