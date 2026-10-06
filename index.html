@@ -44,7 +44,8 @@ h2{font-size:20px;margin:0 0 12px}
 .row dt{min-width:64px;color:var(--sub);font-size:14px}
 .row dd{margin:0;font-weight:600}
 dl{margin:0}
-.course{display:flex;gap:14px;align-items:center}
+.course{display:block}
+.course-top{display:flex;gap:14px;align-items:center}
 .course .km{font-size:26px;font-weight:800;color:var(--main);min-width:70px}
 .course h3{margin:0;font-size:17px}
 .course p{margin:2px 0 0;font-size:14px;color:var(--sub)}
@@ -85,7 +86,7 @@ b,strong,.btn,.row dd{font-weight:400}
 .share-btn svg{width:18px;height:18px}
 .toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(30px);background:#216B59;color:#fff;font-size:13px;padding:9px 18px;border-radius:9999px;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:50;pointer-events:none;opacity:0;transition:all .25s cubic-bezier(.2,.8,.2,1);white-space:nowrap}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-  .course-img{width:100%;display:block;border-radius:14px;margin:10px 0}
+  .course-img{width:100%;display:block;border-radius:12px;margin:14px 0 0}
 </style>
 </head>
 <body>
@@ -142,9 +143,8 @@ b,strong,.btn,.row dd{font-weight:400}
 
   <section id="course">
     <h2>슬로깅 코스</h2>
-    <div class="card course"><div class="km">2km</div><div><h3>걷기 코스</h3><p>가족과 함께 편안하게 걸어요.</p></div></div>
-    <img class="course-img" src="images/course_2km.jpg" alt="2km 걷기 코스 지도" loading="lazy">
-    <div class="card course"><div class="km">5km</div><div><h3>달리기 코스</h3><p>무리하지 않는 속도로 천천히 달려요.</p></div></div>
+    <div class="card course"><div class="course-top"><div class="km">2km</div><div><h3>걷기 코스</h3><p>가족과 함께 편안하게 걸어요.</p></div></div><img class="course-img" src="images/course_2km.jpg" alt="2km 걷기 코스 지도" loading="lazy"></div>
+    <div class="card course"><div class="course-top"><div class="km">5km</div><div><h3>달리기 코스</h3><p>무리하지 않는 속도로 천천히 달려요.</p></div></div><img class="course-img" src="images/course_5km.jpg" alt="5km 달리기 코스 지도" loading="lazy"></div>
     <img class="course-img" src="images/course_5km.jpg" alt="5km 달리기 코스 지도" loading="lazy">
   </section>
 
