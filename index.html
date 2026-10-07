@@ -30,6 +30,11 @@ header{padding:13px 0;font-size:13px;color:var(--sub);display:flex;justify-conte
 .top-box{width:calc(100% - 24px);max-width:560px;margin:12px auto 0;background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 6px 24px rgba(33,107,89,.12)}
 .top-box .hero{border-radius:0}
 .top-body{padding:0 18px 18px}
+.ras{display:inline-block;background:#fff;border-radius:.4em;padding:0 .22em;line-height:1.25;font-family:"Outfit","Do Hyeon",sans-serif;font-weight:800}
+.ras i{font-style:normal}
+.ras i:nth-child(1){color:#1E6FD9}
+.ras i:nth-child(2){color:#E5393B}
+.ras i:nth-child(3){color:#2E9E4F}
 section{padding:30px 0 6px}
 h2{font-size:20px;margin:0 0 12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:12px}
@@ -122,9 +127,9 @@ b,strong,.btn,.row dd{font-weight:400}
       <span style="display:inline-block;background:#fff;padding:3px 8px;border-radius:16px;">화성오산교육지원청· 2026</span>
       <span class="top-right"><button type="button" id="shareBtn" class="share-btn" title="공유하기" aria-label="공유하기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg></button></span></header>
     <small>2026 화성오산 교육가족</small>
-    <h1>RAS 슬로깅 페스타</h1>
+    <h1>슬로깅 페스타</h1>
     <div class="slogan">교권 존중, 교육가족 모두의 RUN</div>
-    <p>천천히, 함께, 끝까지.<br>교사·학생·학부모가 함께 달리는 RAS 슬로깅 페스타에 오신 것을 환영합니다!</p>
+    <p>천천히, 함께, 끝까지.<br>교사·학생·학부모가 함께 달리는 <span class="ras"><i>R</i><i>A</i><i>S</i></span> 슬로깅 페스타에 오신 것을 환영합니다!</p>
   </div>
 </div>
 
@@ -154,20 +159,20 @@ b,strong,.btn,.row dd{font-weight:400}
     <h2>공식 포스터</h2>
     <img src="/poster-thumb.jpg?v=20261007"
      alt="포스터 확대"
-     style="width:100%;height:auto;border-radius:16px;display:block;border:1px solid var(--line)">
+     style="max-width:96vw;max-height:90vh;display:block;margin:auto">
   </section>
 
   <section id="about">
     <h2>행사 개요</h2>
     <div class="card"><dl>
-      <div class="row"><dt>행사명</dt><dd>2026 화성오산 교육가족 RAS 슬로깅 페스타</dd></div>
+      <div class="row"><dt>행사명</dt><dd>2026 화성오산 교육가족 <span class="ras"><i>R</i><i>A</i><i>S</i></span> 슬로깅 페스타</dd></div>
       <div class="row"><dt>대상</dt><dd>화성오산 교육가족 (교사, 학생, 학부모)</dd></div>
       <div class="row"><dt>일시</dt><dd>2026. 10. 24.(토) 09:00</dd></div>
       <div class="row"><dt>장소</dt><dd>동탄 여울공원 일대</dd></div>
       <div class="row"><dt>주최·주관</dt><dd>화성오산교육지원청</dd></div>
       <div class="row"><dt>협조</dt><dd>화성시청</dd></div>
     </dl></div>
-    <div class="card"><b>행사 의미</b><ul><li>교권 존중</li><li>교육가족 동행</li><li>RAS 교육 실현</li></ul><p style="margin:10px 0 0;font-size:14px;color:var(--sub)">교육 3주체가 함께 걷고 달리며 교권 존중의 의미를 되새기고, 함께 RAS 교육을 실현하는 행사입니다.</p></div>
+    <div class="card"><b>행사 의미</b><ul><li>교권 존중</li><li>교육가족 동행</li><li><span class="ras"><i>R</i><i>A</i><i>S</i></span> 교육 실현</li></ul><p style="margin:10px 0 0;font-size:14px;color:var(--sub)">교육 3주체가 함께 걷고 달리며 교권 존중의 의미를 되새기고, 함께 <span class="ras"><i>R</i><i>A</i><i>S</i></span> 교육을 실현하는 행사입니다.</p></div>
     <div class="card note"><b>슬로깅이란?</b><br>슬로우(slow)와 조깅(jogging)을 합친 말입니다. 기록을 다투지 않고, 교육가족이 여유를 갖고 천천히 달려 한 코스를 함께 완주하는 데 의미가 있어요.</div>
   </section>
 
@@ -252,10 +257,17 @@ b,strong,.btn,.row dd{font-weight:400}
   function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
   function typeInto(el,text,perChar){
     return new Promise(function(resolve){
-      var node=document.createTextNode('');el.appendChild(node);
-      var chars=Array.from(text),i=0;
+      var chars=Array.from(text),i=0,cur=null,wrap=null,at=text.indexOf('RAS');
       var timer=setInterval(function(){
-        node.data+=chars[i];i++;
+        var ch=chars[i];
+        if(at>=0&&i>=at&&i<at+3){
+          if(i===at){wrap=document.createElement('span');wrap.className='ras';el.appendChild(wrap);cur=null;}
+          var l=document.createElement('i');l.textContent=ch;wrap.appendChild(l);
+        }else{
+          if(!cur){cur=document.createTextNode('');el.appendChild(cur);}
+          cur.data+=ch;
+        }
+        i++;
         if(i>=chars.length){clearInterval(timer);resolve();}
       },perChar);
     });
@@ -275,7 +287,7 @@ b,strong,.btn,.row dd{font-weight:400}
     setTimeout(dismiss,Math.max(TOTAL_DURATION-(Date.now()-start),400));
   }
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){
-    elT.innerHTML=TITLE_LINES.join('<br>');elSub.textContent=SLOGAN;setTimeout(dismiss,1800);
+    elT.innerHTML=TITLE_LINES.join('<br>').replace('RAS','<span class="ras"><i>R</i><i>A</i><i>S</i></span>');elSub.textContent=SLOGAN;setTimeout(dismiss,1800);
   }else{
     (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run,run);
   }
@@ -299,7 +311,7 @@ b,strong,.btn,.row dd{font-weight:400}
   }
   btn.addEventListener('click',function(){
     var data={
-      title:'2026 화성오산 교육가족 RAS 슬로깅 페스타',
+      title:'2026 화성오산 교육가족 슬로깅 페스타',
       text:'교권 존중, 교육가족 모두의 RUN | 2026.10.24.(토) 09:00 동탄여울공원 일대\n슬로깅 페스타 참가 안내를 확인해 보세요!',
       url:window.location.href
     };
