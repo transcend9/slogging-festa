@@ -265,57 +265,225 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #B3
 </nav>
 <script>
 (function(){
-  var splash=document.getElementById('splash');
-  if(!splash)return;
-  var reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var seen=false;
-  try{seen=sessionStorage.getItem('sloggingIntro2026')==='1';sessionStorage.setItem('sloggingIntro2026','1')}catch(e){}
-  function dismiss(){splash.classList.add('fade-out');setTimeout(function(){splash.remove()},550)}
-  if(seen||reduced){splash.remove();return}
-  splash.addEventListener('click',dismiss,{once:true});
-  document.addEventListener('keydown',dismiss,{once:true});
-  setTimeout(dismiss,1400);
-})();
-(function(){
-  var btn=document.getElementById('shareBtn'),toast=document.getElementById('toast'),timer;
-  function showToast(msg){
-    toast.textContent=msg;toast.classList.add('show');
-    clearTimeout(timer);timer=setTimeout(function(){toast.classList.remove('show')},2300);
-  }
-  function copyText(text){
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-      return navigator.clipboard.writeText(text);
-    }
-    return new Promise(function(resolve,reject){
-      var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
-      document.body.appendChild(ta);ta.select();
-      var ok=false;try{ok=document.execCommand('copy')}catch(e){}
-      document.body.removeChild(ta);ok?resolve():reject();
+  var TOTAL_DURATION = 4500;
+  var TITLE_LINES = ['화성오산 교육가족', 'RAS 슬로깅 페스타'];
+  var SLOGAN = '교권 존중, 교육가족 모두의 RUN';
+  var TITLE_MS_PER_CHAR = 75;
+  var SLOGAN_MS_PER_CHAR = 37.5;
+  var PAUSE_BETWEEN = 300;
+
+  var elS = document.getElementById('splash');
+  var elT = document.getElementById('introTitle');
+  var elSub = document.getElementById('introSubtitle');
+  var elC = document.getElementById('introCursor');
+
+  if (!elS || !elT || !elSub || !elC) return;
+
+  var start = Date.now();
+
+  function wait(ms){
+    return new Promise(function(resolve){
+      setTimeout(resolve, ms);
     });
   }
-  btn.addEventListener('click',function(){
-    var data={
-      title:'2026 화성오산 교육가족 RAS 슬로깅 페스타',
-      text:'교권 존중, 교육가족 모두의 RUN | 2026.10.24.(토) 09:00 동탄여울공원 일대\nRAS 슬로깅 페스타 참가 안내를 확인해 보세요!',
-      url:window.location.href
+
+  function typeInto(el, text, perChar){
+    return new Promise(function(resolve){
+      var chars = Array.from(text);
+      var i = 0;
+      var cur = null;
+      var wrap = null;
+      var at = text.indexOf('RAS');
+
+      var timer = setInterval(function(){
+        var ch = chars[i];
+
+        if (at >= 0 && i >= at && i < at + 3){
+          if (i === at){
+            wrap = document.createElement('span');
+            wrap.className = 'ras';
+            el.appendChild(wrap);
+            cur = null;
+          }
+
+          var letter = document.createElement('i');
+          letter.textContent = ch;
+          wrap.appendChild(letter);
+        } else {
+          if (!cur){
+            cur = document.createTextNode('');
+            el.appendChild(cur);
+          }
+          cur.data += ch;
+        }
+
+        i++;
+
+        if (i >= chars.length){
+          clearInterval(timer);
+          resolve();
+        }
+      }, perChar);
+    });
+  }
+
+  function dismiss(){
+    elC.classList.add('hidden');
+    elS.classList.add('fade-out');
+
+    setTimeout(function(){
+      elS.style.display = 'none';
+    }, 900);
+  }
+
+  async function run(){
+    for (var i = 0; i < TITLE_LINES.length; i++){
+      await typeInto(elT, TITLE_LINES[i], TITLE_MS_PER_CHAR);
+
+      if (i < TITLE_LINES.length - 1){
+        elT.appendChild(document.createElement('br'));
+      }
+    }
+
+    await wait(PAUSE_BETWEEN);
+    await typeInto(elSub, SLOGAN, SLOGAN_MS_PER_CHAR);
+
+    setTimeout(
+      dismiss,
+      Math.max(TOTAL_DURATION - (Date.now() - start), 400)
+    );
+  }
+
+  if (
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ){
+    elT.innerHTML = TITLE_LINES.join('<br>').replace(
+      'RAS',
+      '<span class="ras"><i>R</i><i>A</i><i>S</i></span>'
+    );
+    elSub.textContent = SLOGAN;
+    setTimeout(dismiss, 1800);
+  } else {
+    var fontsReady = document.fonts && document.fonts.ready
+      ? document.fonts.ready
+      : Promise.resolve();
+
+    fontsReady.then(run, run);
+  }
+
+  elS.onclick = function(){
+    this.style.display = 'none';
+  };
+})();
+
+(function(){
+  var btn = document.getElementById('shareBtn');
+  var toast = document.getElementById('toast');
+  var timer;
+
+  if (!btn || !toast) return;
+
+  function showToast(message){
+    toast.textContent = message;
+    toast.classList.add('show');
+
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+      toast.classList.remove('show');
+    }, 2300);
+  }
+
+  function copyText(text){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(text);
+    }
+
+    return new Promise(function(resolve, reject){
+      var textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      var ok = false;
+
+      try {
+        ok = document.execCommand('copy');
+      } catch (error) {}
+
+      document.body.removeChild(textarea);
+
+      if (ok){
+        resolve();
+      } else {
+        reject();
+      }
+    });
+  }
+
+  btn.addEventListener('click', function(){
+    var data = {
+      title: '2026 화성오산 교육가족 RAS 슬로깅 페스타',
+      text: '교권 존중, 교육가족 모두의 RUN | 2026.10.24.(토) 09:00 동탄여울공원 일대\nRAS 슬로깅 페스타 참가 안내를 확인해 보세요!',
+      url: window.location.href
     };
-    if(navigator.share){
+
+    if (navigator.share){
       navigator.share(data).catch(function(){});
-    }else{
-      copyText(data.url).then(function(){showToast('링크가 복사되었습니다.')},function(){showToast('복사하지 못했어요. 주소창의 링크를 직접 복사해 주세요.')});
+    } else {
+      copyText(data.url).then(
+        function(){
+          showToast('링크가 복사되었습니다.');
+        },
+        function(){
+          showToast('복사하지 못했어요. 주소창의 링크를 직접 복사해 주세요.');
+        }
+      );
     }
   });
 })();
+
 (function(){
-  var links=Array.from(document.querySelectorAll('nav a'));
-  var targets=links.map(function(link){return document.querySelector(link.getAttribute('href'))});
+  var links = Array.from(document.querySelectorAll('nav a'));
+  var targets = links.map(function(link){
+    return document.querySelector(link.getAttribute('href'));
+  });
+
   function markCurrent(){
-    var current=0;
-    targets.forEach(function(target,index){if(target&&target.getBoundingClientRect().top<=150)current=index});
-    links.forEach(function(link,index){link.classList.toggle('active',index===current);if(index===current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')});
+    var current = 0;
+
+    targets.forEach(function(target, index){
+      if (target && target.getBoundingClientRect().top <= 150){
+        current = index;
+      }
+    });
+
+    links.forEach(function(link, index){
+      link.classList.toggle('active', index === current);
+
+      if (index === current){
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
   }
-  var queued=false;
-  window.addEventListener('scroll',function(){if(queued)return;queued=true;requestAnimationFrame(function(){markCurrent();queued=false})},{passive:true});
+
+  var queued = false;
+
+  window.addEventListener('scroll', function(){
+    if (queued) return;
+    queued = true;
+
+    requestAnimationFrame(function(){
+      markCurrent();
+      queued = false;
+    });
+  }, {passive: true});
+
   markCurrent();
 })();
 </script>
