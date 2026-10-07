@@ -27,6 +27,9 @@ header{padding:13px 0;font-size:13px;color:var(--sub);display:flex;justify-conte
 .hero h1{font-size:40px;line-height:1.3;margin:8px 0 10px;font-weight:400}
 .hero .slogan{font-size:18px;font-weight:700;color:#8ED8F8}
 .hero p{font-size:14.5px;margin:14px 0 0}
+.top-box{width:calc(100% - 24px);max-width:560px;margin:12px auto 0;background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 6px 24px rgba(33,107,89,.12)}
+.top-box .hero{border-radius:0}
+.top-body{padding:0 18px 18px}
 section{padding:30px 0 6px}
 h2{font-size:20px;margin:0 0 12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:12px}
@@ -112,6 +115,7 @@ b,strong,.btn,.row dd{font-weight:400}
   <div class="cur" id="introCursor">|</div>
   <div class="em"><span>🚶</span><span>🏃</span><span>👟</span><span>🌿</span><span>🏅</span></div>
 </div>
+<div class="top-box">
 <div class="hero" id="home">
   <div class="wrap">
     <header style="color:#3FA9D8;padding-top:0;font-family:'Do Hyeon',sans-serif;">
@@ -124,7 +128,7 @@ b,strong,.btn,.row dd{font-weight:400}
   </div>
 </div>
 
-<div class="wrap">
+  <div class="top-body">
   <div class="nums">
     <div><b>10.24</b><span>토요일 09:00</span></div>
     <div><b>2km</b><span>걷기 코스</span></div>
@@ -142,12 +146,17 @@ b,strong,.btn,.row dd{font-weight:400}
     <a class="btn" href="#schedule">당일 일정 보기</a>
     <a class="btn" href="#where">오시는 길</a>
   </div>
+  </div>
+</div>
 
+<div class="wrap">
   <section id="poster">
     <h2>공식 포스터</h2>
     <img src="/poster-thumb.jpg?v=20261007"
      alt="포스터 확대"
      style="max-width:96vw;max-height:90vh;display:block;margin:auto">
+  </section>
+
   <section id="about">
     <h2>행사 개요</h2>
     <div class="card"><dl>
@@ -290,7 +299,7 @@ b,strong,.btn,.row dd{font-weight:400}
   }
   btn.addEventListener('click',function(){
     var data={
-      title:'2026 화성오산 교육가족 RAS 슬로깅 페스타',
+      title:'2026 화성오산 교육가족 슬로깅 페스타',
       text:'교권 존중, 교육가족 모두의 RUN | 2026.10.24.(토) 09:00 동탄여울공원 일대\n슬로깅 페스타 참가 안내를 확인해 보세요!',
       url:window.location.href
     };
@@ -301,6 +310,7 @@ b,strong,.btn,.row dd{font-weight:400}
     }
   });
 })();
-document.getElementById("splash").onclick=function(){this.style.display="none"};var d=document.getElementById("dlg");document.getElementById("zoom").onclick=function(){d.showModal()};document.getElementById("close").onclick=function(){d.close()};d.onclick=function(e){if(e.target===d)d.close()};</script>
+document.getElementById("splash").onclick=function(){this.style.display="none"};
+</script>
 </body>
 </html>
