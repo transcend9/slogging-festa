@@ -14,145 +14,136 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Do+Hyeon&family=Outfit:wght@800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#EFF9FF;--card:#FFFFFF;--ink:#216B59;--sub:#216B59;--main:#59B36A;--accent:#216B59;--line:#CDEFFF;--soft:#9EDB8C;--green:#59B36A;--hero1:#59B36A;--hero2:#216B59;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+
+:root{--bg:#F6F7F2;--card:#FFF;--ink:#243B32;--sub:#66756D;--main:#287052;--accent:#174D38;--line:#E3E8DF;--soft:#EDF3E8;--green:#287052;--hero1:#245D45;--hero2:#123D2D;--hero-text:#FFFFFF;--radius:20px}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Gowun Dodum","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.6;padding-bottom:84px}
-.wrap{max-width:560px;margin:0 auto;padding:0 18px}
-header{padding:13px 0;font-size:13px;color:var(--sub);display:flex;justify-content:space-between;align-items:center}
-.hero{background:linear-gradient(160deg,var(--hero1),var(--hero2));color:#fff;border-radius:0 0 28px 28px;padding:36px 0 34px}
-.hero .wrap{text-align:left}
-.hero small{font-size:14px}
-.hero h1{font-size:40px;line-height:1.3;margin:8px 0 10px;font-weight:400}
-.hero .slogan{font-size:18px;font-weight:700;color:#8ED8F8}
-.hero p{font-size:14.5px;margin:14px 0 0}
-.top-box{width:calc(100% - 24px);max-width:560px;margin:12px auto 0;background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 6px 24px rgba(33,107,89,.12)}
-.top-box .hero{border-radius:0}
-.top-body{padding:0 18px 18px}
-.ras{display:inline-block;background:#fff;border-radius:.4em;padding:0 .22em;line-height:1.25;font-family:"Outfit","Do Hyeon",sans-serif;font-weight:800}
-.ras i{font-style:normal}
-.ras i:nth-child(1){color:#1E6FD9}
-.ras i:nth-child(2){color:#E5393B}
-.ras i:nth-child(3){color:#2E9E4F}
-section{padding:30px 0 6px}
-h2{font-size:20px;margin:0 0 12px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:12px}
-.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:-22px}
-.nums div{background:linear-gradient(180deg,#FFFFFF,#F4FBEF);border:1px solid var(--soft);border-radius:14px;text-align:center;padding:12px 4px}
-.nums b{display:block;font-size:23px;color:var(--main)}
-.nums span{font-size:15px;color:var(--sub)}
-.btns{display:grid;gap:10px;margin-top:18px}
-.btn{display:block;text-align:center;padding:14px;border-radius:14px;font-weight:700;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:#F7FCFF}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-.btn.volunteer{background:#1677B8;border-color:#1677B8;color:#fff}
-.btn.off{opacity:.6}
-.row{display:flex;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line)}
-.row:last-child{border:0}
-.row dt{min-width:64px;color:var(--sub);font-size:14px}
-.row dd{margin:0;font-weight:600}
-dl{margin:0}
-.course{display:block}
-.course-top{display:flex;gap:14px;align-items:center}
-.course .km{font-size:26px;font-weight:800;color:var(--main);min-width:70px}
-.course h3{margin:0;font-size:17px}
-.course p{margin:2px 0 0;font-size:14px;color:var(--sub)}
-.note{background:#F4FBEF;border-color:#9EDB8C}
-.note b{color:#216B59}
-.soon{border-style:dashed;color:var(--sub);text-align:center}
-.sched-card{padding:0;overflow:hidden}
-.sched{width:100%;border-collapse:collapse;font-size:14px;color:var(--ink)}
-.sched th,.sched td{padding:12px 10px;border-bottom:1px solid var(--line)}
-.sched th+th,.sched td+td{border-left:1px solid var(--line)}
-.sched tbody tr:last-child td{border-bottom:0}
-.sched th{background:rgba(158,219,140,.35);font-family:"Do Hyeon","Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-weight:400;font-size:16px;text-align:center}
-.sched td:first-child{white-space:nowrap;text-align:center;width:1%}
-.sched .ev+.ev{margin-top:4px}
-.sched .ev::before{content:"- "}
-.poster{aspect-ratio:3/4;display:grid;place-items:center;border:2px dashed var(--line);border-radius:16px;color:var(--sub);font-size:14px}
-ul{margin:6px 0 0;padding-left:20px}
-footer{padding:26px 0;font-size:12.5px;color:var(--sub);text-align:center}
-nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 4px calc(8px + env(safe-area-inset-bottom,0px))}
-nav a{flex:1;text-align:center;font-size:12px;color:var(--sub);text-decoration:none;padding:4px 0}
-nav a:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-
-#splash{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#59B36A,#216B59);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;transition:opacity .8s ease,visibility .8s ease}
-#splash.fade-out{opacity:0;visibility:hidden;pointer-events:none}
-#splash .y{font-family:'Outfit',sans-serif;font-size:clamp(48px,14vw,72px);font-weight:800;letter-spacing:-.02em;line-height:1;margin-bottom:4px;background:linear-gradient(135deg,#fff 30%,#CDEFFF 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:introFadeInDown .6s ease .2s both}
-#splash h1{font-size:34px;line-height:1.3;margin:8px 0 0;font-weight:400;min-height:2.6em}
-#splash .s{font-size:17px;font-weight:700;color:#CDEFFF;margin-top:10px;min-height:1.6em}
-#splash .cur{display:inline-block;width:3px;font-size:28px;font-weight:300;color:#CDEFFF;margin-top:4px;animation:introBlink .8s step-end infinite}
-#splash .cur.hidden{display:none}
-#splash .em{font-size:38px;margin-top:34px;display:flex;gap:14px}
-#splash .em span{display:inline-block;opacity:0;animation:pop .5s ease forwards}
-#splash .em span:nth-child(1){animation-delay:.3s}#splash .em span:nth-child(2){animation-delay:.5s}#splash .em span:nth-child(3){animation-delay:.7s}#splash .em span:nth-child(4){animation-delay:.9s}#splash .em span:nth-child(5){animation-delay:1.1s}
-@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.8)}to{opacity:1;transform:none}}
-@keyframes introFadeInDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
-@keyframes introBlink{0%,100%{opacity:1}50%{opacity:0}}
-@media (prefers-reduced-motion:reduce){#splash .y,#splash .cur{animation:none}#splash .em span{animation:none;opacity:1}}
-
-h1,h2,h3,.nums b,.course .km,#splash .s{font-family:"Do Hyeon","Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-weight:400}
-b,strong,.btn,.row dd{font-weight:400}
-.btn,.row dd,b{letter-spacing:.01em}
-.top-right{display:flex;align-items:center;gap:10px}
-.share-btn{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:transform .2s ease,background .2s ease}
-.share-btn:hover{background:rgba(255,255,255,.3)}
-.share-btn:active{transform:scale(.92)}
-.share-btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.7;padding-bottom:calc(86px + env(safe-area-inset-bottom,0px))}
+a{color:inherit}
+button,summary,a{-webkit-tap-highlight-color:transparent}
+button{font:inherit}
+.wrap{max-width:640px;margin:0 auto;padding:0 24px}
+.icon{width:20px;height:20px;display:inline-block;vertical-align:-4px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.top-box{width:calc(100% - 24px);max-width:640px;margin:16px auto 0;background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 12px 40px rgba(24,62,43,.06)}
+.hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(145deg,var(--hero1),var(--hero2));color:var(--hero-text);padding:24px 0 55px}
+.hero-track{position:absolute;right:-125px;top:35px;width:420px;height:400px;opacity:.13;pointer-events:none;z-index:-1;transform:rotate(-18deg)}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:30px;font-size:12px;letter-spacing:.03em}
+.organizer{color:#F0F6ED;display:inline-block;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 11px;background:rgba(255,255,255,.06)}
+.top-right{display:flex;align-items:center}
+.share-btn{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:background .2s ease}
+.share-btn:hover{background:rgba(255,255,255,.12)}
 .share-btn svg{width:18px;height:18px}
-.toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(30px);background:#216B59;color:#fff;font-size:13px;padding:9px 18px;border-radius:9999px;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:50;pointer-events:none;opacity:0;transition:all .25s cubic-bezier(.2,.8,.2,1);white-space:nowrap}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-.course-img{width:100%;display:block;border-radius:12px;margin:14px 0 0}
+.hero small{font-size:14px;color:#DCE9DE;letter-spacing:.06em}
+h1,h2,h3,.nums b,.course .km{font-family:"Do Hyeon","Gowun Dodum",sans-serif;font-weight:400}
+.hero h1{font-size:clamp(30px,7.7vw,46px);line-height:1.35;margin:10px 0 14px;letter-spacing:-.025em}
+.hero-title{display:inline;max-width:100%;color:#fff}
+.ras,.hero-title .ras-box{display:inline-block;white-space:nowrap;background:#fff;border-radius:.28em;padding:0 .22em;line-height:1.25;font-family:"Outfit","Do Hyeon",sans-serif;font-weight:800;letter-spacing:0;vertical-align:baseline}
+.ras i{font-style:normal}
+.ras i:nth-child(1),.hero-title .title-r{color:#1E6FD9}
+.ras i:nth-child(2),.hero-title .title-a{color:#E5393B}
+.ras i:nth-child(3),.hero-title .title-s{color:#2E9E4F}
+.hero .slogan{font-size:16px;font-weight:400;color:#F1F6EC;letter-spacing:.015em}
+.hero p{font-size:14px;color:#DCE9DE;line-height:1.8;margin:20px 0 0;max-width:440px}
+.top-body{padding:0 24px 24px}
+.nums{position:relative;display:grid;grid-template-columns:1.25fr 1fr 1fr;margin-top:-24px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 0;box-shadow:0 8px 20px rgba(24,62,43,.04)}
+.nums div{text-align:center;padding:0 8px;display:flex;flex-direction:column;justify-content:center;gap:2px;min-width:0}
+.nums div+div{border-left:1px solid var(--line)}
+.nums b{display:block;font-size:26px;line-height:1.3;color:var(--accent)}
+.nums span{font-size:12px;color:var(--sub)}
+.btns{display:grid;gap:10px;margin-top:20px}
+.btn{display:flex;justify-content:center;align-items:center;gap:8px;width:100%;text-align:center;padding:14px 12px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;border:1px solid var(--line);color:var(--accent);background:#fff;transition:background .2s,border-color .2s,transform .2s}
+.btn:hover{background:#F2F6EF;border-color:#B8CABC}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-size:16px;padding:16px 12px}
+.btn.primary:hover{background:#216044}
+.btn.volunteer{border-color:#B4C7B9;background:#fff;color:var(--accent)}
+.quick-links{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.quick-links .btn{color:var(--sub);border-color:transparent;background:#F4F6F1;font-size:13px;padding:11px 8px}
 .apply-fold summary{list-style:none;cursor:pointer}
 .apply-fold summary::-webkit-details-marker{display:none}
-.apply-fold .arrow{display:inline-block;transition:transform .2s ease}
+.apply-fold .arrow{display:inline-block;transition:transform .2s}
 .apply-fold[open] .arrow{transform:rotate(180deg)}
-.apply-choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.apply-choices .btn{background:rgba(158,219,140,.6);border-color:rgba(158,219,140,.6);color:#216B59}
-.hero h1 .hero-title {
-  display: inline-block;
-  max-width: 100%;
-  color: #fff;
-  font-size: clamp(28px, 7vw, 40px);
-  line-height: 1.35;
-}
+.apply-choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.apply-choices .btn{background:var(--soft);border-color:var(--soft);font-size:13px}
+section{padding:40px 0 0;scroll-margin-top:20px}
+h2{font-size:24px;line-height:1.3;color:var(--accent);margin:0 0 16px;letter-spacing:-.02em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:12px}
+.card:last-child{margin-bottom:0}
+.card> b{font-size:16px;font-weight:700}
+dl{margin:0}
+.row{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.row:first-child{padding-top:0}
+.row:last-child{border:0;padding-bottom:0}
+.row dt{width:72px;flex-shrink:0;color:var(--sub);font-size:13px}
+.row dd{margin:0;flex:1;min-width:0;font-weight:400;overflow-wrap:anywhere}
+ul{margin:10px 0 0;padding-left:20px;font-size:14px}
+li+li{margin-top:5px}
+.note{background:#EDF3E8;border-color:#DDE8D6;font-size:14px;line-height:1.9}
+.note b{color:var(--accent)}
+.course-top{display:flex;gap:18px;align-items:center}
+.course .km{font-size:32px;line-height:1.3;color:var(--accent);min-width:65px}
+.course h3{margin:0;font-size:20px;line-height:1.4}
+.course p{margin:4px 0 0;font-size:13px;color:var(--sub)}
+.course-img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px;margin:18px 0 0}
+#poster img{border-radius:16px;border:1px solid var(--line);box-shadow:0 8px 26px rgba(24,62,43,.05)}
+.timeline{list-style:none;padding:0;margin:0}
+.timeline li{position:relative;display:grid;grid-template-columns:106px minmax(0,1fr);gap:18px;padding:0 0 25px 20px;margin:0}
+.timeline li::before{content:"";position:absolute;left:3px;top:9px;bottom:-9px;width:1px;background:#DCE6D9}
+.timeline li::after{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--main);box-shadow:0 0 0 4px #EFF4EB}
+.timeline li:last-child{padding-bottom:0}
+.timeline li:last-child::before{display:none}
+.timeline time{font-family:"Outfit","Malgun Gothic",sans-serif;font-size:13px;font-weight:600;color:var(--accent);padding-top:2px;white-space:nowrap}
+.timeline-content{font-size:14px;min-width:0}
+.ev+.ev{margin-top:5px}
+.meeting{display:flex;align-items:flex-start;gap:10px;background:#EDF3E8;color:var(--accent);border-radius:12px;padding:13px 14px;margin:16px 0 20px;font-size:14px}
+.meeting small{display:block;color:var(--sub);font-size:12px;margin-top:3px}
+#where .place-name{font-family:"Do Hyeon",sans-serif;font-size:22px;color:var(--accent)}
+#where .address{display:block;font-size:12px;color:var(--sub);margin-top:4px}
+#where .row dt{width:83px}
+#where .row dt .icon{width:16px;height:16px;margin-right:5px;vertical-align:-3px}
+.travel-note{margin:18px 0 0;padding:12px 14px;border-radius:12px;font-size:13px;color:var(--sub)}
+.map-frame{margin-top:20px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--soft)}
+.map-frame iframe{display:block}
+.contact-number{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--accent);font-family:"Outfit",sans-serif;font-size:20px;font-weight:600;margin-top:8px}
+footer{padding:36px 0 24px;font-size:12px;color:var(--sub);text-align:center;line-height:1.9}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(255,255,255,.96);border-top:1px solid var(--line);display:flex;justify-content:center;padding:9px 6px calc(9px + env(safe-area-inset-bottom,0px));backdrop-filter:blur(14px)}
+nav a{width:20%;max-width:128px;display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11px;color:var(--sub);text-decoration:none;padding:4px 0;border-radius:10px}
+nav a .icon{width:21px;height:21px}
+nav a.active{color:var(--accent);background:#EEF3E9}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #B3CBA2;outline-offset:4px}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(12px);background:var(--accent);color:#fff;font-size:13px;padding:10px 18px;border-radius:999px;z-index:60;pointer-events:none;opacity:0;transition:opacity .2s,transform .2s;max-width:calc(100% - 32px);width:max-content;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+#splash{position:fixed;inset:0;z-index:100;background:linear-gradient(145deg,var(--hero1),var(--hero2));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;transition:opacity .5s,visibility .5s;cursor:pointer}
+#splash.fade-out{opacity:0;visibility:hidden;pointer-events:none}
+#splash .y{font-family:"Outfit",sans-serif;font-size:64px;font-weight:800;line-height:1.1;letter-spacing:-.04em;color:#EAF2E4}
+#splash h1{font-size:32px;line-height:1.5;margin:16px 0 0}
+#splash .s{font-size:14px;color:#DCE9DE;margin-top:16px}
+#splash .em{display:flex;gap:18px;margin-top:28px;color:#DCE9DE}
+#splash .em .icon{width:26px;height:26px}
+@media(max-width:380px){.wrap{padding:0 18px}.top-body{padding:0 18px 20px}.card{padding:18px}.hero h1{font-size:29px}.nums b{font-size:23px}.nums span{font-size:11px}.organizer{font-size:11px;padding:5px 8px}.timeline li{grid-template-columns:1fr;gap:4px}.row{gap:12px}#where .row{display:block}#where .row dt{width:auto;margin-bottom:7px}.apply-choices .btn{font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}#splash{display:none}}
 
-.hero-title .ras-box {
-  display: inline-block;
-  background: #fff;
-  border-radius: 8px;
-  padding: 0 .22em;
-  line-height: 1.25;
-  font-family: "Outfit", "Do Hyeon", sans-serif;
-  font-weight: 800;
-  
-}
-
-.hero-title .title-r { color: #1E6FD9; }
-.hero-title .title-a { color: #E5393B; }
-.hero-title .title-s { color: #2E9E4F; }
 </style>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden"><defs><symbol id="icon-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></symbol><symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol><symbol id="icon-run" viewBox="0 0 24 24"><circle cx="16" cy="4" r="2"/><path d="m5 10 4-3 5 3 4 1 3-3M9 7l-2 7 5 2-3 6M7 14l-4 6M14 10l-1 4 5 4"/></symbol><symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18M8 14h2M14 14h2M8 17h2"/></symbol><symbol id="icon-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol><symbol id="icon-bus" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="16" rx="3"/><path d="M5 10h14M8 19v2M16 19v2M8 15h.01M16 15h.01M9 6h6"/></symbol><symbol id="icon-car" viewBox="0 0 24 24"><path d="m5 8 2-5h10l2 5M3 9h18v9H3zM5 18v3M19 18v3M6 13h2M16 13h2"/></symbol><symbol id="icon-parking" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 17V7h3a3 3 0 0 1 0 6h-3"/></symbol><symbol id="icon-phone" viewBox="0 0 24 24"><path d="M7 3H4a1 1 0 0 0-1 1c0 9 8 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a16 16 0 0 1-7-7l2-2Z"/></symbol><symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol><symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol><symbol id="icon-heart" viewBox="0 0 24 24"><path d="M20 5a5 5 0 0 0-8 1 5 5 0 0 0-8-1C0 10 6 16 12 21c6-5 12-11 8-16Z"/></symbol><symbol id="icon-medal" viewBox="0 0 24 24"><circle cx="12" cy="15" r="6"/><path d="m8 10-4-7h5l3 6 3-6h5l-4 7M12 12v6M9 15h6"/></symbol></defs></svg>
 <div id="splash" aria-hidden="true">
   <div class="y">2026</div>
-  <h1 id="introTitle"></h1>
-  <div class="s" id="introSubtitle"></div>
-  <div class="cur" id="introCursor">|</div>
-  <div class="em"><span>🚶</span><span>🏃</span><span>👟</span><span>🌿</span><span>🏅</span></div>
+  <h1>화성오산 교육가족<br><span class="ras"><i>R</i><i>A</i><i>S</i></span> 슬로깅 페스타</h1>
+  <div class="s">교권 존중, 교육가족 모두의 RUN</div>
+  <div class="em"><svg class="icon" aria-hidden="true"><use href="#icon-run"></use></svg><svg class="icon" aria-hidden="true"><use href="#icon-heart"></use></svg><svg class="icon" aria-hidden="true"><use href="#icon-medal"></use></svg></div>
 </div>
 <div class="top-box">
 <div class="hero" id="home">
+<svg class="hero-track" viewBox="0 0 420 400" fill="none" aria-hidden="true"><rect x="36" y="22" width="278" height="350" rx="139" stroke="white"/><rect x="53" y="39" width="244" height="316" rx="122" stroke="white"/><rect x="70" y="56" width="210" height="282" rx="105" stroke="white"/><rect x="87" y="73" width="176" height="248" rx="88" stroke="white"/></svg>
   <div class="wrap">
-    <header style="color:#3FA9D8;padding-top:0;font-family:'Do Hyeon',sans-serif;">
-      <span style="display:inline-block;background:#fff;padding:3px 8px;border-radius:16px;">화성오산교육지원청· 2026</span>
+    <header>
+      <span class="organizer">화성오산교육지원청 · 2026</span>
       <span class="top-right"><button type="button" id="shareBtn" class="share-btn" title="공유하기" aria-label="공유하기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg></button></span></header>
     <small>2026 화성오산 교육가족</small>
     <h1>
   <span class="hero-title"><span class="ras-box"><span class="title-r">R</span><span class="title-a">A</span><span class="title-s">S</span></span> 슬로깅 페스타</span>
 </h1>
-    </h1>
     <div class="slogan">교권 존중, 교육가족 모두의 RUN</div>
     <p>천천히, 함께, 끝까지.<br>교사·학생·학부모가 함께 달리는 <span class="ras"><i>R</i><i>A</i><i>S</i></span> 슬로깅 페스타에 오신 것을 환영합니다!</p>
   </div>
@@ -160,21 +151,21 @@ b,strong,.btn,.row dd{font-weight:400}
 
   <div class="top-body">
   <div class="nums">
-    <div><b>🗓️10.24</b><span>토요일 09:00</span></div>
-    <div><b>🚶2km</b><span>걷기 코스</span></div>
-    <div><b>🏃‍♂️5km</b><span>달리기 코스</span></div>
+    <div><b>10.24</b><span>토요일 09:00</span></div>
+    <div><b>2km</b><span>걷기 코스</span></div>
+    <div><b>5km</b><span>달리기 코스</span></div>
   </div>
   <div class="btns">
     <details class="apply-fold">
-      <summary class="btn primary">☑️슬로깅 참가 신청하기 <span class="arrow">▾</span></summary>
+      <summary class="btn primary">슬로깅 참가 신청하기 <span class="arrow">▾</span></summary>
       <div class="apply-choices">
-        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSH96eASG7K3Stfn5Dwf0tQEiA01Yh3XvTwhimtPf6dTSIZg/viewform?usp=dialog" target="_blank" rel="noopener">👨‍👩‍👧‍👦개인 신청자</a>
-        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeuAJzhiDNSJtUPKcJmX1qJl5yR53lSQ2zFwMAsuJsjHzXaXQ/viewform?usp=publish-editor" target="_blank" rel="noopener">🏢관공서 관계자</a>
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSH96eASG7K3Stfn5Dwf0tQEiA01Yh3XvTwhimtPf6dTSIZg/viewform?usp=dialog" target="_blank" rel="noopener">개인 신청자</a>
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeuAJzhiDNSJtUPKcJmX1qJl5yR53lSQ2zFwMAsuJsjHzXaXQ/viewform?usp=publish-editor" target="_blank" rel="noopener">관공서 관계자</a>
       </div>
     </details>
-    <a class="btn volunteer" href="https://docs.google.com/forms/d/e/1FAIpQLSfbO_dxJxHNkbwCplxmgMgcsqYBZtRWU7oHlPsqYnG5Oyr3jw/viewform?usp=publish-editor" target="_blank" rel="noopener">🙋‍♀️학생 자원봉사단 지원하기</a>
-    <a class="btn" href="#schedule">🕘당일 일정 보기</a>
-    <a class="btn" href="#where">📍오시는 길</a>
+    <a class="btn volunteer" href="https://docs.google.com/forms/d/e/1FAIpQLSfbO_dxJxHNkbwCplxmgMgcsqYBZtRWU7oHlPsqYnG5Oyr3jw/viewform?usp=publish-editor" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-heart"></use></svg> 학생 자원봉사단 지원하기</a>
+    <div class="quick-links"><a class="btn" href="#schedule"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"></use></svg> 당일 일정 보기</a>
+    <a class="btn" href="#where"><svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg> 오시는 길</a></div>
   </div>
   </div>
 </div>
@@ -198,35 +189,32 @@ b,strong,.btn,.row dd{font-weight:400}
       <div class="row"><dt>협조</dt><dd>화성시청</dd></div>
     </dl></div>
     <div class="card"><b>행사 의미</b><ul><li>교권 존중</li><li>교육가족 동행</li><li><span class="ras"><i>R</i><i>A</i><i>S</i></span> 교육 실현</li></ul><p style="margin:10px 0 0;font-size:14px;color:var(--sub)">교육 3주체가 걷고 달리며 교권 존중의 의미를 되새기고,<br>함께 <span class="ras"><i>R</i><i>A</i><i>S</i></span> 교육을 실현하는 행사입니다.</p></div>
-    <div class="card note"><b>💡슬로깅이란?</b><br>슬로우(slow)와 조깅(jogging)을 합친 말입니다.<br>기록을 다투지 않고, 교육가족이 다함께 여유를 갖고 천천히 달려 하나의 코스를 끝까지 완주하는 데 의미가 있어요.</div>
+    <div class="card note"><b>슬로깅이란?</b><br>슬로우(slow)와 조깅(jogging)을 합친 말입니다.<br>기록을 다투지 않고, 교육가족이 다함께 여유를 갖고 천천히 달려 하나의 코스를 끝까지 완주하는 데 의미가 있어요.</div>
   </section>
 
   <section id="course">
     <h2>슬로깅 코스</h2>
-    <div class="card course"><div class="course-top"><div class="km">2km</div><div><h3>①걷기 코스</h3><p>선생님, 친구, 가족과 함께 편안하게 걸어요.</p></div></div><img class="course-img" src="images/course_2km.jpg" alt="2km 걷기 코스 지도" loading="lazy"></div>
-    <div class="card course"><div class="course-top"><div class="km">5km</div><div><h3>②달리기 코스</h3><p>무리하지 않는 속도로 천천히 달려요.</p></div></div><img class="course-img" src="images/course_5km.jpg" alt="5km 달리기 코스 지도" loading="lazy"></div>
+    <div class="card course"><div class="course-top"><div class="km">2km</div><div><h3>걷기 코스</h3><p>선생님, 친구, 가족과 함께 편안하게 걸어요.</p></div></div><img class="course-img" src="images/course_2km.jpg" alt="2km 걷기 코스 지도" loading="lazy"></div>
+    <div class="card course"><div class="course-top"><div class="km">5km</div><div><h3>달리기 코스</h3><p>무리하지 않는 속도로 천천히 달려요.</p></div></div><img class="course-img" src="images/course_5km.jpg" alt="5km 달리기 코스 지도" loading="lazy"></div>
   </section>
 
   <section id="benefit">
     <h2>참가 혜택과 준비물</h2>
-    <div class="card"><b>🏅참가 혜택</b><ul><li>모바일 기록 인증서 발급</li><li>완주 메달 수여</li></ul></div>
-    <div class="card"><b>👕준비물</b><ul><li>편안한 복장</li><li>운동화</li></ul></div>
+    <div class="card"><b><svg class="icon" aria-hidden="true"><use href="#icon-medal"></use></svg> 참가 혜택</b><ul><li>모바일 기록 인증서 발급</li><li>완주 메달 수여</li></ul></div>
+    <div class="card"><b>준비물</b><ul><li>편안한 복장</li><li>운동화</li></ul></div>
   </section>
 
   <section id="schedule">
     <h2>당일 일정</h2>
-    <div class="card sched-card">
-      <table class="sched">
-        <thead><tr><th scope="col">일시</th><th scope="col">주요 행사</th></tr></thead>
-        <tbody>
-          <tr><td>08:00 ~ 08:50</td><td><div class="ev">배번 및 기록 칩 배부</div></td></tr>
-          <tr><td>08:50 ~ 09:00</td><td><div class="ev">집결(동탄여울공원 육상트랙 앞)</div></td></tr>
-          <tr><td>09:00 ~ 09:20</td><td><div class="ev">식전행사(동탄국제고 치어리딩 동아리)</div><div class="ev">국민의례</div><div class="ev">내빈 인사말씀</div><div class="ev">교육국장님 인사말씀</div></td></tr>
-          <tr><td>09:20 ~ 09:30</td><td><div class="ev">준비운동 및 안전교육</div></td></tr>
-          <tr><td>09:30 ~ 11:00</td><td><div class="ev">5km 달리기 → 2km 걷기 코스 순으로 출발</div></td></tr>
-          <tr><td>11:00 ~ 11:30</td><td><div class="ev">페스타 마무리</div></td></tr>
-        </tbody>
-      </table>
+    <div class="card">
+      <ol class="timeline" aria-label="행사 시간 순서">
+        <li><time datetime="08:00">08:00 ~ 08:50</time><div class="timeline-content"><div class="ev">배번 및 기록 칩 배부</div></div></li>
+        <li><time datetime="08:50">08:50 ~ 09:00</time><div class="timeline-content"><div class="ev">집결(동탄여울공원 육상트랙 앞)</div></div></li>
+        <li><time datetime="09:00">09:00 ~ 09:20</time><div class="timeline-content"><div class="ev">식전행사(동탄국제고 치어리딩 동아리)</div><div class="ev">국민의례</div><div class="ev">내빈 인사말씀</div><div class="ev">교육국장님 인사말씀</div></div></li>
+        <li><time datetime="09:20">09:20 ~ 09:30</time><div class="timeline-content"><div class="ev">준비운동 및 안전교육</div></div></li>
+        <li><time datetime="09:30">09:30 ~ 11:00</time><div class="timeline-content"><div class="ev">5km 달리기 → 2km 걷기 코스 순으로 출발</div></div></li>
+        <li><time datetime="11:00">11:00 ~ 11:30</time><div class="timeline-content"><div class="ev">페스타 마무리</div></div></li>
+      </ol>
     </div>
   </section>
 
@@ -234,16 +222,17 @@ b,strong,.btn,.row dd{font-weight:400}
   <h2>오시는 길</h2>
 
   <div class="card">
-    <b>동탄 여울공원<br>(경기도 화성시 동탄구 여울동 1060 일대)</b>
+    <div class="place-name">동탄 여울공원</div><span class="address">경기도 화성시 동탄구 여울동 1060 일대</span>
+    <div class="meeting"><svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg><div><strong>집합장소 · 육상트랙 앞</strong><small>행사 당일 집결 안내를 확인해 주세요.</small></div></div>
 
     <dl style="margin-top:12px;font-size:14px;">
-      <div class="row"><dt>🚌대중교통</dt><dd style="flex:1;min-width:0;">GTX-A·SRT 동탄역 하차<br> → 동탄역(동측) 정류장에서 H101번·208번 이용<br> → ‘반도유보라6차’ 정류장 하차 후 도보 약 5~10분<br>※ H100번 이용 시 ‘동탄여울공원’ 정류장에서 바로 하차 가능</dd></div>
-      <div class="row"><dt>🚗자가용</dt><dd style="flex:1;min-width:0;">내비게이션에 ‘동탄여울공원’ 검색</dd></div>
-      <div class="row"><dt>🅿️주차</dt><dd style="flex:1;min-width:0;">동탄여울공원 공영주차장 이용</dd></div>
+      <div class="row"><dt><svg class="icon" aria-hidden="true"><use href="#icon-bus"></use></svg>대중교통</dt><dd style="flex:1;min-width:0;">GTX-A·SRT 동탄역 하차<br> → 동탄역(동측) 정류장에서 H101번·208번 이용<br> → ‘반도유보라6차’ 정류장 하차 후 도보 약 5~10분<br>※ H100번 이용 시 ‘동탄여울공원’ 정류장에서 바로 하차 가능</dd></div>
+      <div class="row"><dt><svg class="icon" aria-hidden="true"><use href="#icon-car"></use></svg>자가용</dt><dd style="flex:1;min-width:0;">내비게이션에 ‘동탄여울공원’ 검색</dd></div>
+      <div class="row"><dt><svg class="icon" aria-hidden="true"><use href="#icon-parking"></use></svg>주차</dt><dd style="flex:1;min-width:0;">동탄여울공원 공영주차장 이용</dd></div>
     </dl>
-    <p class="note" style="margin:12px 0 0;padding:10px 12px;border-radius:10px;font-size:14px;color:var(--sub);">※ 행사 당일 혼잡이 예상되므로 가급적 대중교통을 이용해 주세요.</p>
+    <p class="note travel-note">※ 행사 당일 혼잡이 예상되므로 가급적 대중교통을 이용해 주세요.</p>
 
-    <div style="margin-top:12px;border-radius:14px;overflow:hidden;">
+    <div class="map-frame">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x357b45d2ae4e3cf5%3A0x2b4e63a4828aea0b!2z64-Z7YOE7Jes7Jq46rO17JuQ!5e0!3m2!1sko!2skr!4v1791127652641!5m2!1sko!2skr"
         width="100%"
@@ -260,7 +249,7 @@ b,strong,.btn,.row dd{font-weight:400}
 
   <section id="apply">
     <h2>문의</h2>
-    <div class="card"><b>화성오산교육지원청 지역교육과 담당 장학사</b><br><span style="color:var(--sub)">☎️031) 6190-3043</span></div>
+    <div class="card"><b>화성오산교육지원청 지역교육과 담당 장학사</b><br><a class="contact-number" href="tel:03161903043"><svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>031) 6190-3043</a></div>
   </section>
 
   <footer>주최·주관 화성오산교육지원청<br>협조 화성시청<br>© 2026 화성오산교육지원청</footer>
@@ -268,60 +257,24 @@ b,strong,.btn,.row dd{font-weight:400}
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <nav aria-label="바로가기">
-  <a href="#home">🏠<br>홈</a>
-  <a href="#about">📋<br>개요</a>
-  <a href="#course">🏃<br>코스</a>
-  <a href="#schedule">🕘<br>일정</a>
-  <a href="#where">📍<br>오시는 길</a>
+  <a href="#home" class="active" aria-current="location"><svg class="icon" aria-hidden="true"><use href="#icon-home"></use></svg><span>홈</span></a>
+  <a href="#about"><svg class="icon" aria-hidden="true"><use href="#icon-info"></use></svg><span>개요</span></a>
+  <a href="#course"><svg class="icon" aria-hidden="true"><use href="#icon-run"></use></svg><span>코스</span></a>
+  <a href="#schedule"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"></use></svg><span>일정</span></a>
+  <a href="#where"><svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg><span>오시는 길</span></a>
 </nav>
 <script>
 (function(){
-  var TOTAL_DURATION=4500;            /* 학생예술제와 동일: 전체 5초 */
-  var TITLE_LINES=['화성오산 교육가족','RAS 슬로깅 페스타'];
-  var SLOGAN='교권 존중, 교육가족 모두의 RUN';
-  var TITLE_MS_PER_CHAR=75;           /* 학생예술제 제목: 10글자 750ms */
-  var SLOGAN_MS_PER_CHAR=37.5;        /* 학생예술제 부제: 32글자 1200ms */
-  var PAUSE_BETWEEN=300;              /* 제목과 부제 사이 0.3초 */
-  var elS=document.getElementById('splash'),elT=document.getElementById('introTitle'),elSub=document.getElementById('introSubtitle'),elC=document.getElementById('introCursor');
-  if(!elS)return;
-  var start=Date.now();
-  function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
-  function typeInto(el,text,perChar){
-    return new Promise(function(resolve){
-      var chars=Array.from(text),i=0,cur=null,wrap=null,at=text.indexOf('RAS');
-      var timer=setInterval(function(){
-        var ch=chars[i];
-        if(at>=0&&i>=at&&i<at+3){
-          if(i===at){wrap=document.createElement('span');wrap.className='ras';el.appendChild(wrap);cur=null;}
-          var l=document.createElement('i');l.textContent=ch;wrap.appendChild(l);
-        }else{
-          if(!cur){cur=document.createTextNode('');el.appendChild(cur);}
-          cur.data+=ch;
-        }
-        i++;
-        if(i>=chars.length){clearInterval(timer);resolve();}
-      },perChar);
-    });
-  }
-  function dismiss(){
-    elC.classList.add('hidden');
-    elS.classList.add('fade-out');
-    setTimeout(function(){elS.style.display='none'},900);
-  }
-  async function run(){
-    for(var i=0;i<TITLE_LINES.length;i++){
-      await typeInto(elT,TITLE_LINES[i],TITLE_MS_PER_CHAR);
-      if(i<TITLE_LINES.length-1)elT.appendChild(document.createElement('br'));
-    }
-    await wait(PAUSE_BETWEEN);
-    await typeInto(elSub,SLOGAN,SLOGAN_MS_PER_CHAR);
-    setTimeout(dismiss,Math.max(TOTAL_DURATION-(Date.now()-start),400));
-  }
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){
-    elT.innerHTML=TITLE_LINES.join('<br>').replace('RAS','<span class="ras"><i>R</i><i>A</i><i>S</i></span>');elSub.textContent=SLOGAN;setTimeout(dismiss,1800);
-  }else{
-    (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run,run);
-  }
+  var splash=document.getElementById('splash');
+  if(!splash)return;
+  var reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var seen=false;
+  try{seen=sessionStorage.getItem('sloggingIntro2026')==='1';sessionStorage.setItem('sloggingIntro2026','1')}catch(e){}
+  function dismiss(){splash.classList.add('fade-out');setTimeout(function(){splash.remove()},550)}
+  if(seen||reduced){splash.remove();return}
+  splash.addEventListener('click',dismiss,{once:true});
+  document.addEventListener('keydown',dismiss,{once:true});
+  setTimeout(dismiss,1400);
 })();
 (function(){
   var btn=document.getElementById('shareBtn'),toast=document.getElementById('toast'),timer;
@@ -353,7 +306,18 @@ b,strong,.btn,.row dd{font-weight:400}
     }
   });
 })();
-document.getElementById("splash").onclick=function(){this.style.display="none"};
+(function(){
+  var links=Array.from(document.querySelectorAll('nav a'));
+  var targets=links.map(function(link){return document.querySelector(link.getAttribute('href'))});
+  function markCurrent(){
+    var current=0;
+    targets.forEach(function(target,index){if(target&&target.getBoundingClientRect().top<=150)current=index});
+    links.forEach(function(link,index){link.classList.toggle('active',index===current);if(index===current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')});
+  }
+  var queued=false;
+  window.addEventListener('scroll',function(){if(queued)return;queued=true;requestAnimationFrame(function(){markCurrent();queued=false})},{passive:true});
+  markCurrent();
+})();
 </script>
 </body>
 </html>
